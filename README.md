@@ -10,6 +10,7 @@ The project is organized into two main modules:
 - **video_segmentation**: Handles generating segmentation timestamps, video cutting, and transcription of video clips.
 
 ## 🦄 Project Structure
+```bash
 project/
 ├── main.py
 ├── check_speaker.py
@@ -25,13 +26,14 @@ project/
 │   ├── video_cutter.py
 │   └── video_transcriber.py
 └── setup.py
+```
 
 
 ## 🔨 Installation
 
 ### Prerequisites
 
-- Python 3.8 or later
+- Python 3.10
 - [PyTorch](https://pytorch.org/)  
 - [pyannote.audio](https://github.com/pyannote/pyannote-audio)  
 - [whisper](https://github.com/openai/whisper)  
@@ -41,18 +43,18 @@ project/
 
 1. **Clone the Repository**
 
-   ```bash
-   git clone 
-   cd project
-   ```
+```bash
+git clone 
+cd project
+```
 
 2. **Install the Package**
 
 From the project root, run:
 
-   ```bash
-   pip install -e .
-   ```
+```bash
+pip install -e .
+```
 
 ## 🪄 Usage
 The project provides a unified command-line interface through main.py with two subcommands.
@@ -67,9 +69,9 @@ This command will:
 
 3. Process and clean the generated timestamp files (denoise/merge).
 
-   ```bash
-   python main.py process_videos /path/to/your/video_folder
-   ```
+```bash
+python main.py process_videos /path/to/your/video_folder
+```
 
 Replace /path/to/your/video_folder with the directory containing your video subfolders.
 
@@ -88,10 +90,10 @@ This command will:
 
 3. Transcribe the video clips using the Whisper model.
 
-   ```bash
-   python main.py segment --video_base /path/to/your/video_folder --whisper_model /path/to/whisper-model/small.pt
+```bash
+python main.py segment --video_base /path/to/your/video_folder --whisper_model /path/to/whisper-model/small.pt
 
-   ```
+```
 Replace with the directory containing your video subfolders and whisper models.
 
 ## ✏️ Citation
