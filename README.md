@@ -5,7 +5,7 @@ This project is designed to process videos through a series of automated tasks i
 - **Audio Extraction & Speaker Diarization**: Extract audio from videos, perform speaker diarization, and generate clean timestamp files.
 - **Video Segmentation**: Generate segmentation timestamps, cut the videos into clips based on these timestamps, and transcribe the clips using the Whisper model.
 
-The project is organized into two main modules:
+The project is organized into two main modules/steps:
 - **process_videos**: Handles audio extraction, diarization, and timestamp denoise/merge.
 - **video_segmentation**: Handles generating segmentation timestamps, video cutting, and transcription of video clips.
 
@@ -37,9 +37,35 @@ project/
 - [PyTorch](https://pytorch.org/)  
 - [pyannote.audio](https://github.com/pyannote/pyannote-audio)  
 - [whisper](https://github.com/openai/whisper)  
-- Other dependencies as listed in `setup.py`
+- Other dependencies as listed in [setup.py](./setup.py) 
 
-### Steps
+### Model download
+
+1. [PyTorch](https://pytorch.org/)
+
+You need to apply for access on [HuggingFace](https://huggingface.co/fatymatariq/speaker-diarization-3.1).
+And you should specify your auth_token in [diarization_processor.py](./process_videos/diarization_processor.py#L6-L7).
+
+2. [whisper](https://github.com/openai/whisper)
+
+You can download Whisper-small in  [HuggingFace](https://huggingface.co/openai/whisper-small). (Or choose other size Whisper model as you need).
+Then specify the model path in your argparse when you run "segment" command.
+
+### Data Preparation
+We recommend that you prepare your long video data in the format below:
+```bash
+video_data/
+├── 0001/
+│   ├── 0001.mp4
+├── 0002/
+│   ├── 0002.mp4
+...
+├── 0455/
+│   ├── 0455.mp4
+```
+The ID numbers don't need to be continuous. If you have your customized data format, the code need to be changed by yourself.
+
+### Get start
 
 1. **Clone the Repository**
 
@@ -57,7 +83,7 @@ pip install -e .
 ```
 
 ## 🪄 Usage
-The project provides a unified command-line interface through main.py with two subcommands.
+The project provides a unified command-line interface through [main.py](./main.py) with two subcommands.
 
 ### Step 1. Process Videos
 
@@ -77,7 +103,7 @@ Replace /path/to/your/video_folder with the directory containing your video subf
 
 ### ⚠️ Step 1.5. Mannual Check
 We strongly recommand you have a mannual check in your merged timestamps, and edit unqualified .txt file by yourself.
-Before that, you can use check_speaker.py to automatically output unqualified file names.
+Before that, you can use [check_speaker.py](./check_speaker.py) to automatically output unqualified file names.
 
 That will be very helpful to have right video clips!
 
@@ -111,4 +137,4 @@ If you find this work useful for your research, please feel free to leave a star
 ```
 
 ## 🤝 Acknowledgement
-This work is supported by **The University of Oulu & The Research Council of Finland, PROFI7 352788**. Thanks to [Pyannote](https://github.com/pyannote/pyannote-audio), [Whisper ](https://github.com/openai/whisper). 
+This work is supported by **The University of Oulu & The Research Council of Finland, PROFI7 352788**. Thanks to [Pyannote](https://github.com/pyannote/pyannote-audio) and [Whisper ](https://github.com/openai/whisper). 
