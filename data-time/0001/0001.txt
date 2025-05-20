@@ -1,1 +1,0 @@
-Speaker SPEAKER_00 from 0.0s to 2.8s
