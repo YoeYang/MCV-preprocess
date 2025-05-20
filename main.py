@@ -16,7 +16,7 @@ def main():
     # Step 2：segment
     parser_segment = subparsers.add_parser("segment", help="video segmentation: timestamp generation, video clips extraction, transcription generation")
     # timestamp generation (used to cut video)
-    parser_segment.add_argument("--merged_dir", type=str, default='./data-merge', help="path of merged timestamps")
+    parser_segment.add_argument("--merged_dir", type=str, default='./data-time', help="path of merged timestamps")
     parser_segment.add_argument("--timestamps_dir", type=str, default='./data-timestamps', help="output dir of timestamps")
     parser_segment.add_argument("--numbers", nargs="+", type=int, default=list(range(1, 455)),
                                 help="file number list needed to process")

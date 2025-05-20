@@ -63,10 +63,10 @@ class VideoCutter:
             timestamps_file_path = os.path.join(self.timestamps_dir, f"{number_str}.txt")
             output_folder_path = os.path.join(self.clips_output, number_str)
             if not os.path.exists(timestamps_file_path):
-                print(f"File doesn't exit: {timestamps_file_path}")
+                print(f"File doesn't exist: {timestamps_file_path}")
                 continue
             if not os.path.exists(input_video_path):
-                print(f"File doesn't exit:{input_video_path}")
+                print(f"File doesn't exist:{input_video_path}")
                 continue
             self.extract_video_segments(input_video_path, timestamps_file_path, output_folder_path)
             print(f"Finished: {number_str}")

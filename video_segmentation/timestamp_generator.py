@@ -29,8 +29,11 @@ class TimestampGenerator:
         return timestamps
 
     def process_file(self, number):
+        folder_name = f"{number:04d}"
+        folder_path = os.path.join(self.merged_dir, folder_name)
         file_name = f"{number:04d}.txt"
-        input_file = os.path.join(self.merged_dir, file_name)
+        input_file = os.path.join(folder_path, file_name)
+
         if not os.path.exists(input_file):
             print(f"File doesn't exist: {input_file}")
             return

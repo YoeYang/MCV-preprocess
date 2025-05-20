@@ -6,7 +6,7 @@ class DiarizationProcessor:
     def __init__(self, audio_input_base, time_output_base,
                  auth_token=" ", data_length=455):      
         """
-        ATTENTION: You should edit your file number, and get the access of pyannote on Huggingface. Then add your auth_token.
+        ATTENTION: You should edit yourw file number, and get the access of pyannote on Huggingface. Then add your auth_token.
         Pyannote HF: https://huggingface.co/pyannote/speaker-diarization-3.1
         :param audio_input_base: root dir of input audio
         :param time_output_base: root dir of output timestamp

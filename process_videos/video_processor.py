@@ -12,7 +12,7 @@ class VideoProcessor:
         self.current_dir = current_dir
         self.audio_output_base = os.path.join(current_dir, "data-audio")
         self.time_output_base = os.path.join(current_dir, "data-time")
-        self.data_length = 455   # Edit here
+        self.data_length = 456   # Edit here (Data length = your video number + 1)
 
         os.makedirs(self.audio_output_base, exist_ok=True)
         os.makedirs(self.time_output_base, exist_ok=True)
